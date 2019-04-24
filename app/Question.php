@@ -51,5 +51,10 @@ class Question extends Model
         // foreach (Qquestion->answers as $answer )
     }
 
+    public function acceptBestAnswer(Answer $answer)
+    {
+        $this->best_answer_id = $answer->id;
+        $this->save();
+    }
 
 }
