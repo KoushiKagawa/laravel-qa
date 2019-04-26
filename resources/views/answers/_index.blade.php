@@ -34,7 +34,6 @@
                                 @csrf
                                 <input type="hidden" name ="vote" value="-1">
                             </form>
-
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}
