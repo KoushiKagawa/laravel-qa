@@ -44,7 +44,7 @@
         @include ('shared._favorite', [
             'model' => $model
         ])
-    @elseif ($mode instanceof App\Answe)
+    @elseif ($model instanceof App\Answe)
         @include ('shared._accept', [
             'model' => $model
         ])
