@@ -3651,8 +3651,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['answer'],
   data: function data() {
@@ -3665,7 +3663,7 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this = this;
 
-      axios.post("answers/".concat(this.id, "/accept ")).then(function (res) {
+      axios.post("/answers/".concat(this.id, "/accept")).then(function (res) {
         _this.$toast.success(res.data.message, "Success", {
           timeout: 3000,
           position: 'bottomLeft'
@@ -3680,10 +3678,10 @@ __webpack_require__.r(__webpack_exports__);
       return true;
     },
     accepted: function accepted() {
-      return !this.canAccept && this.is_best;
+      return !this.canAccept && this.isBest;
     },
     classes: function classes() {
-      return ['mt-2', this.accepted ? 'vote-accepted' : ''];
+      return ['mt-2', this.isBest ? 'vote-accepted' : ''];
     }
   }
 });
@@ -41374,7 +41372,7 @@ var render = function() {
       ? _c(
           "a",
           {
-            staticClass: "classes",
+            class: _vm.classes,
             attrs: { title: "Mark this answer as best answer" },
             on: {
               click: function($event) {
@@ -41391,7 +41389,7 @@ var render = function() {
       ? _c(
           "a",
           {
-            staticClass: "classes",
+            class: _vm.classes,
             attrs: {
               title: "The question owner accepted this answer as best answer"
             }

@@ -11,11 +11,10 @@
 @endif
 
 @php
-    $formId = $name. "-" . $model->id;
+    $formId = $name . "-" . $model->id;
     $formAction = "/{$firstURISegment}/{$model->id}/vote";
 @endphp
-
-<div class="d-flex flex-column vote-controls">
+<div class="d-fex flex-column vote-controls">
     <a title="This {{ $name }} is useful" 
         class="vote-up {{ Auth::guest() ? 'off' : '' }}"
         onclick="event.preventDefault(); document.getElementById('up-vote-{{ $formId }}').submit();"
@@ -24,7 +23,7 @@
     </a>
     <form id="up-vote-{{ $formId }}" action="{{ $formAction }}" method="POST" style="display:none;">
         @csrf
-        <input type="hidden" name ="vote" value="1">
+        <input type="hidden" name="vote" value="1">
     </form>
 
     <span class="votes-count">{{ $model->votes_count }}</span>
@@ -37,12 +36,12 @@
     </a>
     <form id="down-vote-{{ $formId }}" action="{{ $formAction }}" method="POST" style="display:none;">
         @csrf
-        <input type="hidden" name ="vote" value="-1">
+        <input type="hidden" name="vote" value="-1">
     </form>
-
+    
     @if ($model instanceof App\Question)
-        <favorite :question="{{ $model }}"></favorite>       
-    @elseif ($model instanceof App\Answe)
+        <favorite :question="{{ $model }}"></favorite>
+    @elseif ($model instanceof App\Answer)
         <accept :answer="{{ $model }}"></accept>
     @endif
 </div>
