@@ -6,9 +6,9 @@
                     <div class="card-title">
                         <h2>{{ title }}</h2>
                     </div>
-                    <hr>
-
-                    <answer v-for="answer in answers" :answer="answer" :key="answer.id"></answer>
+                    <hr>                    
+                    
+                    <answer @deleted="remove(index)" v-for="(answer, index) in answers"  :answer="answer" :key="answer.id"></answer>
 
                     <div class="text-center mt-3" v-if="nextUrl">
                         <button @click.prevent="fetch(nextUrl)" class="btn btn-outline-secondary">Load more answers</button>
@@ -20,10 +20,9 @@
 </template>
 
 <script>
-import Answer from './Answer.vue'
+import Answer from './Answer.vue';
 export default {
     props: ['question'],
-
     data () {
         return {
             questionId: this.question.id,
@@ -32,12 +31,14 @@ export default {
             nextUrl: null
         }
     },
-
     created () {
         this.fetch(`/questions/${this.questionId}/answers`);
     },
-
     methods: {
+        remove (index) {
+            this.answers.splice(index, 1);
+            this.count--;
+        },
         fetch (endpoint) {
             axios.get(endpoint)
             .then(({data}) => {
@@ -46,14 +47,11 @@ export default {
             })
         }
     },
-
     computed: {
         title () {
             return this.count + " " + (this.count > 1 ? 'Answers' : 'Answer');
         }
     },
-
     components: { Answer }
 }
 </script>
-
