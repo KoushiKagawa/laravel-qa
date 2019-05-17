@@ -36,8 +36,6 @@
             </div>
         </div>
     </div>
-    <answers :question="{{ $question }}"></answers>
-    
-    @include ('answers._create')
+    <answers :question="{{ $question }}"></answers>    
 </div>
 @endsection
