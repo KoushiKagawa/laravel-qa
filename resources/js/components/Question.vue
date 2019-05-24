@@ -38,6 +38,7 @@
                         <vote :model="question" name="question"></vote>
                             
                         <div class="media-body">
+                
                             <div v-html="bodyHtml" ref="bodyHtml"></div>
                             <div class="row">
                                 <div class="col-4">

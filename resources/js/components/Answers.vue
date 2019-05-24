@@ -26,12 +26,9 @@
 import Answer from './Answer.vue';
 import NewAnswer from './NewAnswer.vue';
 import highlight from '../mixins/highlight';
-
 export default {
     props: ['question'],
-
     mixins: [highlight],
-    
     data () {
         return {
             questionId: this.question.id,
@@ -51,7 +48,6 @@ export default {
             this.$nextTick(() => {
                 this.highlight(`answer-${answer.id}`);
             })
-            
         },
         remove (index) {
             this.answers.splice(index, 1);
@@ -59,11 +55,9 @@ export default {
         },
         fetch (endpoint) {
             this.answerIds = [];
-
             axios.get(endpoint)
             .then(({data}) => {
                 this.answerIds = data.data.map(a => a.id);
-
                 this.answers.push(...data.data);
                 
                 this.nextUrl = data.next_page_url;
@@ -80,6 +74,6 @@ export default {
             return this.count + " " + (this.count > 1 ? 'Answers' : 'Answer');
         }
     },
-    components: { Answer,  NewAnswer }
+    components: { Answer, NewAnswer }
 }
 </script>

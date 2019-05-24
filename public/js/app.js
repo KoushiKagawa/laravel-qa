@@ -4471,6 +4471,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['question'],
@@ -84734,10 +84735,10 @@ __webpack_require__.r(__webpack_exports__);
         el = this.$refs.bodyHtml;
       } else {
         el = document.getElementById(id);
-      }
+      } //console.log('el', el);
 
-      console.log('el', el);
-      if (el) Prism.highlightAllUnder(el);
+
+      if (el) prismjs__WEBPACK_IMPORTED_MODULE_0___default.a.highlightAllUnder(el);
     }
   }
 });
@@ -84831,9 +84832,9 @@ __webpack_require__.r(__webpack_exports__);
           }, toast, 'button');
         }]]
       });
-    }
-  },
-  "delete": function _delete() {}
+    },
+    "delete": function _delete() {}
+  }
 });
 
 /***/ }),

@@ -59,14 +59,17 @@ export default {
                     this.delete();
 
                     instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
                 }, true],
                 ['<button>NO</button>', function (instance, toast) {
+
                     instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
                 }],
             ]            
             });            
-        }   
-    },
+        },
 
-    delete () {}
+        delete () {}
+    }
 }
